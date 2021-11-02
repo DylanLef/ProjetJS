@@ -2,7 +2,8 @@
 Grille de notation BACK (sur 33 points):
 18 points
 
--------------------------FAIT-------------------------------------------
+-----------------------------------------FAIT-------------------------------------------
+
 Les users sont stockés en BDD : 1 point (ok)
 Les mots de passe sont stockés en base de données sous forme hashée+salée avec bcryptjs : 1 point (ok)
 Les parties sont stockées en BDD : 1 point (ok)
@@ -20,7 +21,6 @@ Il faut etre logué pour lister les parties : 1 point (ok)
 chaque joueur possède initialement 100 jetons : 1 point (ok)
 le créateur de la partie peut supprimer cette partie : 1 point (ok)
 on ne peut pas supprimer une partie dont on est pas le créateur : 1 point (ok)
-
 
 
 ---------------------------------PAS FAIT------------------------------------------
@@ -44,6 +44,7 @@ Si le lot arrive sur l'emplacement d'un joueur, ce joueur remporte le lot (vainq
 Grille de notation FRONT (sur 24 points):
 14 points (avec point bonus du dark mod)
 -----------------------FAIT-------------------------------------
+
 Il y a un bouton "créer un compte" : 2 points (ok)
 Il y a un bouton "s'authentifier" : 1 point (ok)
 Il y a un bouton "se deconnecter" : 1 point(ok)
@@ -56,9 +57,11 @@ on ne peut pas supprimer une partie dont on est pas le créateur : 1 point(ok)
 Darkmod (ok) 
 
 -----------------------------------------PAS SUR---------------------------------
+
 la partie sera mise à jour sans intervention de l'utilisateur : 3 points (pas sur, j'utilise un interval pour la liste des parties qui refresh la page avec vérif dans la console, mais pas sur que ce soit ce que vous vouliez, donx j'ai pas compté les points)
 
 ------------------------------------------EN COURS-------------------------------------
+
 On peut miser : 3 points
 
 ------------------------------------------PAS FAIT-------------------------------------
