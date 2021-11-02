@@ -235,11 +235,18 @@ nav{
     
 }
 
-.laDiv{
+.laDivJ1{
   
-        position: relative;
-        left: 600px;
-        top: 100px;      
+        position: absolute;
+        left: 340px;
+        top: 300px;      
+}
+
+.laDivJ2{
+  
+  position: absolute;
+  left: 700px;
+  top: 0px;      
 }
 
 .listeDesParties{

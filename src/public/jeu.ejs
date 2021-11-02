@@ -16,7 +16,7 @@
 
 <body>
     <nav>
-        <h1 id="logo">Partie en cours</h1>
+        <h1 id="logo">Amusez-vous bien !</h1>
             <ul class="head-ul">
                 <li><button  class="button1"  onclick="location.href='/logout';" >Deconnexion</button></li>
                 <li><button  class="button1"  onclick="location.href='/lobby';">Retour à la liste des parties</button></li>
@@ -32,15 +32,13 @@
             </ul>
     </nav>
 
-    <p class="j1"></p>
-
 
     <table class="table-style">
 
         <thead>
             <tr>
                 
-                <th class="j1 ">J1 : </th>
+                <th class="j1 ">J1 : <%= user1.Username %> </br> Jetons :   <%= game.j1.jetons %> </th>
 
                 <th>x</th>
                 <th>x</th>
@@ -54,26 +52,37 @@
                 <th>x</th>
                 <th>x</th>
 
-                <th class="j2 ">J2 : </th>
+                <th class="j2 ">J2 : <%= user2.Username %> </br> Jetons : <%= game.j2.jetons %>  </th>
             </tr>
 
             <br>
-            <div class="laDiv"> 
-                <form class="/miseJ1" method="post">
-                <input type="text" name="miseJ1" id="name" placeholder="Entrez votre mise">
-                <button type="submit">Miser (marche pas encore)</button>
-
-            </form>
-        </div>
+       
            
 
         </thead>
     </table>
 
 
-<p class="j2"></p>
+
+    <div class="laDivJ1"> 
+  
+<form action="/miseJ1" method="post">
+            
+    <input type="number" placeholder="Entrez votre mise" id="miseJ1" name="miseJ1" required="">
+    <button type="submit">Miser</button>
+
+</form>
+
+<div class="laDivJ2"> 
+  
+    <form action="/miseJ2" method="post">
+                
+        <input type="number" placeholder="Entrez votre mise" id="miseJ2" name="miseJ2" required="">
+        <button type="submit">Miser</button>
+    
+    </form>
+</div>
 
 </body>
-<script src="/infosPartie.js"></script>
 <script src="/darkmod.js"></script>
 </html>

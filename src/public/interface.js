@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', async (req, res) => {
             session = reponseUser;
             
             if (window.location.pathname.startsWith("/lobby")) {
-                const interval = 15;
-                const validTime = [0, 15, 30, 45];
+                const interval = 5;
+                const validTime = [0,5,10,15,20,25,30,35,45,50,55];
             
                 let next_time = DateTime.now();
                 let check = validTime.find(t => t >= next_time.second);
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async (req, res) => {
                 setTimeout(async () => {
                     setInterval(async () => {
             
-                        console.log("LETS GOOOOOO");
+                        console.log("Refresh de 5 secondes");
                         await refreshGames();
                         await recupUser();
             
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async (req, res) => {
 
     async function recupUser() {
         const liste = document.querySelector(".adversaire");
-      ;
+      
         let actualItems = [];
     
         for (let index = 0; index < liste.children.length; index++) {       //stocke tt les id déjà existant
@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', async (req, res) => {
                     if (document.getElementById(game._id)) {
                         let item = document.getElementById(game._id);
                         
-                            item.innerHTML = game.Username
-                        liste.appendChild(option)
+                        item.innerHTML = game.Username
+                        liste.appendChild(item)
                     }
                     else {
                         let option = document.createElement("option");

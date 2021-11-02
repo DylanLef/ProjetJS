@@ -64,8 +64,8 @@ const ListeParties = mongoose.Schema({
     spectateur: {type: Array},
     statue: {type: String, enum: ['en Attente','En cours', 'Terminé'], default:'en Attente'},
     createur: String,
-    miseJ1: { type:Number, default: 0} ,
-    miseJ2: {type: Number, default: 0},
+    miseJ1: { type:Number, default: 0, min : 0, max : 100} ,
+    miseJ2:   {type: Number, default: 0, min : 0, max : 100},
     date: {type: Date, default: Date.now},
 
 })
@@ -238,7 +238,23 @@ const rejoindre = (req, res) =>{
     res.render('jeu.ejs')
 }
 
-app.get('/rejoindre/:id', rejoindre);
+app.get('/rejoindre/:id', async (req, res) => {
+    if (!req.session.user) return res.redirect('/lobby');
+    let game = await listeParties.findById(req.params.id)
+    if (!game) return res.redirect("/lobby");
+
+    let user1 = await listeusers.findOne({"Username":game.j1.nomJ1});
+    let user2 = await listeusers.findOne({"Username":game.j2.nomJ2});
+
+    let type = null;
+
+    if (user1.id == req.session.user.id || user2.id == req.session.user.id) {
+        type = true;
+    } else {
+        type = false;
+    }
+    res.render('Jeu.ejs', {game: game, user1: user1, user2: user2, isplayer: type})
+});
 
 
 
@@ -254,11 +270,13 @@ await listeusers.find().then((users)=>{
 })
 })
 
-// app.post("/rejoindre", async (req, res) =>{
-// await listeParties.updateOne({}).then((mise)=>{
-//     res.render("jeu.ejs");
-// })
-// })
+app.post('/miseJ1' , async (req,res)=>{
+console.log("test");
+})
+
+app.post('/miseJ2', async(req,res)=>{
+
+})
 
 //-------------------------Ecoute du serveur-------------------------
 app.listen(3000, () => { // écoute ce qu'il se passe sur le port 3000
