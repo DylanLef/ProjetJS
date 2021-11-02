@@ -58,7 +58,6 @@ Si le lot arrive sur l'emplacement d'un joueur, ce joueur remporte le lot (vainq
 
 
 Grille de notation FRONT (sur 24 points):
-
 14 points (avec point bonus du dark mod)
 
 -----------------------FAIT-------------------------------------
